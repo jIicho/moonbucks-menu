@@ -70,6 +70,7 @@ function App() {
       // 왜????
       // innerHTML 속성을 사용하면 매번 새롭게 만드는 HTML을 계속 덮어씌우기때문에!!!
       // 기존의 것이 유지되면서 추가되는 것으로 만들어야한다.
+
       // 이때 사용하는 메소드가 insertAdjacentHTML()
 
       // <!-- beforebegin -->
