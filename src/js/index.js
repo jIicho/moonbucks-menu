@@ -2,7 +2,7 @@
 
 // TODO 메뉴 추가
 // - [x] 메뉴의 이름을 입력 받고 엔터키 입력으로 추가한다.
-// - [ ] 추가되는 메뉴의 아래 마크업은 <ul id="espresso-menu-list" class="mt-3 pl-0"></ul> 안에 삽입해야 한다.
+// - [x] 추가되는 메뉴의 아래 마크업은 <ul id="espresso-menu-list" class="mt-3 pl-0"></ul> 안에 삽입해야 한다.
 // - [ ] 총 메뉴 갯수를 count하여 상단에 보여준다.
 // - [ ] 메뉴가 추가되고 나면, input은 빈 값으로 초기화한다.
 // - [ ] 사용자 입력값이 빈 값이라면 추가되지 않는다.
@@ -87,6 +87,20 @@ function App() {
         "beforeend",
         menuItemTemplate(espressoMenuName)
       );
+
+      // 다음! 세번째 요구사항을 보면
+      // 총 메뉴 갯수를 count하여 상단에 보여주는 기능을 구현해보자.
+      // 메뉴가 추가되고나서 메뉴의 총 갯수를 구하고 업데이트를 해주면 된다.
+      // 우선, index.html 파일로 가서 그 기능을 하는 부분을 찾자.
+      // 총 메뉴 개수를 판단할때 li의 갯수로 하면 좋을 것 같다.
+      const menuCount = $("#espresso-menu-list").querySelectorAll("li").length;
+      // $("#espresso-menu-list").querySelector("li") 로만 쓸 경우
+      // li의 태그의 첫번째 요소만 리턴한다.
+      // 고로 우리는 전체의 갯수를 원하기때문에 querySelectorAll() 메서드를 써서 가져올 수 있다.
+
+      // menu-count 클래스를 안에 있는 문자 값만 바꿔주면 되기때문에
+      // innerText() 메서드를 이용해서 바꾸어주면 된다.
+      $(".menu-count").innerText = `총 ${menuCount} 개`;
     }
   });
 }
